@@ -28,11 +28,12 @@ Architecture и работу с реактивными потоками данн
 
 - Kotlin
 - Jetpack Compose
-- Clean Architecture (data / domain / presentation)
+- Clean Architecture (data / domain / presentation слои)
 - MVVM (ViewModel + StateFlow)
 - Use Case паттерн (отдельный класс на каждое действие: добавление, 
   удаление, редактирование, поиск и т.д.)
 - Kotlin Coroutines & Flow
+- Figma
 
 ## 🚀 Запуск проекта
 
@@ -46,11 +47,11 @@ Architecture и работу с реактивными потоками данн
 
 ## 📌 Статус
 
-В активной разработке.
+В активной разработке
 
 ## 📚 Чему научился / учусь
 
 - Построению приложения по Clean Architecture (разделение на слои data/domain/presentation)
 - Паттерну Use Case
 - Jetpack Compose для построения UI
-- Работе с Kotlin Flow и StateFlow для реактивного
+- Работе с Kotlin Flow и StateFlow для реактивного стиля
