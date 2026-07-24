@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -40,6 +42,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
@@ -49,6 +52,7 @@ import com.taskachakov.notes.presentation.ui.theme.Green
 import com.taskachakov.notes.presentation.ui.theme.OtherNotesColors
 import com.taskachakov.notes.presentation.ui.theme.PinnedNotesColors
 import com.taskachakov.notes.presentation.ui.theme.Yellow200
+import com.taskachakov.notes.presentation.utils.DateFormatter
 
 @Composable
 fun NotesScreen(
@@ -104,6 +108,7 @@ fun NotesScreen(
                     }
                 ) {index, note ->
                     NoteCard(
+                        modifier = Modifier.widthIn(max = 160.dp),
                         note = note,
                         backgroundColor = PinnedNotesColors[index % PinnedNotesColors.size],
                         onNoteClick = {
@@ -186,20 +191,24 @@ private fun NoteCard(
         Text(
             text = note.title,
             fontSize = 14.sp,
-            color = MaterialTheme.colorScheme.onSurface
+            maxLines = 1,
+            color = MaterialTheme.colorScheme.onSurface,
+            overflow = TextOverflow.Ellipsis
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = note.updatedAt.toString(),
+            text = DateFormatter.formatDateToString(note.updatedAt),
             fontSize = 12.sp,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         Spacer(modifier = Modifier.height(24.dp))
         Text(
             text = note.content,
+            maxLines = 3,
             fontSize = 16.sp,
             color = MaterialTheme.colorScheme.onSurface,
-            fontWeight = FontWeight.Medium
+            fontWeight = FontWeight.Medium,
+            overflow = TextOverflow.Ellipsis
         )
     }
 }
