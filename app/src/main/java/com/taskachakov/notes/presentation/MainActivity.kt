@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.taskachakov.notes.presentation.screens.creation.CreateNoteScreen
 import com.taskachakov.notes.presentation.screens.notes.NotesScreen
 import com.taskachakov.notes.presentation.ui.theme.NotesTheme
 
@@ -21,14 +22,15 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             NotesTheme {
-                NotesScreen(
-                    onNoteClick = {
-                        Log.d("MainActivity", "onNoteClick $it")
-                    },
-                    onAddNoteClick = {
-                        Log.d("MainActivity", "clickOnFloatingButton")
-                    }
-                )
+//                NotesScreen(
+//                    onNoteClick = {
+//                        Log.d("MainActivity", "onNoteClick $it")
+//                    },
+//                    onAddNoteClick = {
+//                        Log.d("MainActivity", "clickOnFloatingButton")
+//                    }
+//                )
+                CreateNoteScreen()
             }
         }
     }
