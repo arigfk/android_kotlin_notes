@@ -38,6 +38,8 @@ android {
 }
 
 dependencies {
+    // Jetpack Compose integration
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.compose.material.icons.extended)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(platform(libs.androidx.compose.bom))
