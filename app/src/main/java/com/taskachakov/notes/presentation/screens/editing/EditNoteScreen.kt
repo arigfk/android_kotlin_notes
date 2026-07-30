@@ -1,5 +1,6 @@
 package com.taskachakov.notes.presentation.screens.editing
 
+import android.content.Context
 import android.graphics.drawable.Icon
 import android.util.Log
 import androidx.compose.foundation.clickable
@@ -30,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -47,8 +49,9 @@ import com.taskachakov.notes.presentation.utils.DateFormatter
 fun EditNoteScreen(
     modifier: Modifier = Modifier,
     noteId: Int,
+    context: Context = LocalContext.current.applicationContext,
     viewmodel: EditNoteViewModel = viewModel {
-        EditNoteViewModel(noteId)
+        EditNoteViewModel(noteId, context)
     },
     onFinished: () -> Unit
 ) {

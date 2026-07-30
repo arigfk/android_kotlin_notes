@@ -9,6 +9,8 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface NotesDao {
 
+    @Query("SELECT * FROM notes WHERE id == :noteId")
+    suspend fun getNote(noteId: Int): NoteDbModel
     @Query("SELECT * FROM notes ORDER BY updatedAt DESC")
     fun getAllNotes(): Flow<List<NoteDbModel>>
 

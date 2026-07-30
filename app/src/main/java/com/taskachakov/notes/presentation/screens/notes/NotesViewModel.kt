@@ -2,8 +2,10 @@
 
 package com.taskachakov.notes.presentation.screens.notes
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.taskachakov.notes.data.NotesRepositoryImpl
 import com.taskachakov.notes.data.TestNotesRepositoryImpl
 import com.taskachakov.notes.domain.AddNoteUseCase
 import com.taskachakov.notes.domain.DeleteNoteUseCase
@@ -25,9 +27,9 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class NotesViewModel: ViewModel() {
+class NotesViewModel(context: Context): ViewModel() {
 
-    private val repository = TestNotesRepositoryImpl
+    private val repository = NotesRepositoryImpl.getInstance(context)
     private val getAllNotesUseCase = GetAllNotesUseCase(repository)
     private val searchNotesUseCase = SearchNotesUseCase(repository)
     private val switchPinnedStatusUseCase = SwitchPinnedStatusUseCase(repository)
