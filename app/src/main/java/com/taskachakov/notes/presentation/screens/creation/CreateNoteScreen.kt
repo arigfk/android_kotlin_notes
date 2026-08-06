@@ -36,6 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.taskachakov.notes.presentation.utils.DateFormatter
 
@@ -43,10 +44,7 @@ import com.taskachakov.notes.presentation.utils.DateFormatter
 @Composable
 fun CreateNoteScreen(
     modifier: Modifier = Modifier,
-    context: Context = LocalContext.current.applicationContext,
-    viewmodel: CreateNoteViewModel = viewModel {
-        CreateNoteViewModel(context)
-    },
+    viewmodel: CreateNoteViewModel = hiltViewModel(),
     onFinished: () -> Unit
 ) {
 
