@@ -14,27 +14,4 @@ import androidx.room.RoomDatabase
 abstract class NotesDatabase: RoomDatabase() {
 
     abstract fun notesDao(): NotesDao
-
-    companion object {
-
-        var instance: NotesDatabase? = null
-        val LOCK = Any()
-
-        fun getInstance(context: Context): NotesDatabase {
-
-            instance?.let {return it}
-
-            synchronized(LOCK) {
-                instance?.let {return it}
-
-                return Room.databaseBuilder(
-                    context = context,
-                    klass = NotesDatabase::class.java,
-                    name = "notes.db"
-                ).build().also {
-                    instance = it
-                }
-            }
-        }
-    }
 }
